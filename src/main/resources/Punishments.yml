@@ -1,0 +1,152 @@
+
+# ██████╗░██╗░░░██╗███╗░░██╗██╗░██████╗██╗░░██╗███╗░░░███╗███████╗███╗░░██╗████████╗░██████╗
+# ██╔══██╗██║░░░██║████╗░██║██║██╔════╝██║░░██║████╗░████║██╔════╝████╗░██║╚══██╔══╝██╔════╝
+# ██████╔╝██║░░░██║██╔██╗██║██║╚█████╗░███████║██╔████╔██║█████╗░░██╔██╗██║░░░██║░░░╚█████╗░
+# ██╔═══╝░██║░░░██║██║╚████║██║░╚═══██╗██╔══██║██║╚██╔╝██║██╔══╝░░██║╚████║░░░██║░░░░╚═══██╗
+# ██║░░░░░╚██████╔╝██║░╚███║██║██████╔╝██║░░██║██║░╚═╝░██║███████╗██║░╚███║░░░██║░░░██████╔╝
+# ╚═╝░░░░░░╚═════╝░╚═╝░░╚══╝╚═╝╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░╚═════╝░
+#
+# programmed by ItxItay!
+#
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# How to use:
+# //instructions here
+punishments:
+  Bypassing-Punishment:
+    name: "Bypassing Punishment"
+    level: high
+    Staff-Level: Admin
+    first:
+      time: permanent
+      type: BanIP
+    second:
+      time: X
+      type: X
+    third:
+      time: X
+      type: X
+    fourth:
+      time: X
+      type: X
+    fifth:
+      time: X
+      type: X
+  Multiple-Accounts:
+    name: "Multiple Accounts"
+    level: high
+    Staff-Level: Admin
+    first:
+      time: permanent
+      type: BanIP
+    second:
+      time: X
+      type: X
+    third:
+      time: X
+      type: X
+    fourth:
+      time: X
+      type: X
+    fifth:
+      time: X
+      type: X
+  Personal-Information:
+    name: "Personal Information"
+    level: high
+    Staff-Level: Admin
+    first:
+      time: 1mo
+      type: Ban
+    second:
+      time: permanent
+      type: Ban
+    third:
+      time: X
+      type: X
+    fourth:
+      time: X
+      type: X
+    fifth:
+      time: X
+      type: X
+  Harassment:
+    name: "Harassment"
+    level: high
+    Staff-Level: Admin
+    first:
+      time: 1y
+      type: Ban
+    second:
+      time: 2y
+      type: Ban
+    third:
+      time: 3y
+      type: Ban
+    fourth:
+      time: 4y
+      type: Ban
+    fifth:
+      time: 5y
+      type: Ban
+  Unfair-Advantage:
+    name: "Unfair Advantage"
+    level: high
+    Staff-Level: Admin
+    first:
+      time: 60d
+      type: Ban
+    second:
+      time: 120d
+      type: Ban
+    third:
+      time: 250d
+      type: Ban
+    fourth:
+      time: 1y
+      type: Ban
+    fifth:
+      time: 3y
+      type: Ban
+  Threatening:
+    name: Threatening
+    level: high
+    Staff-Level: Admin
+    first:
+      time: 30d
+      type: Ban
+    second:
+      time: 60d
+      type: Ban
+    third:
+      time: 120d
+      type: Ban
+    fourth:
+      time: 240
+      type: Ban
+    fifth:
+      time: 480d
+      type: Ban
+  Sexual-Content:
+    name: "Sexual Content"
+    level: high
+    Staff-Level: Helper
+    first:
+      time: 3d
+      type: Mute
+    second:
+      time: 7d
+      type: Mute
+    third:
+      time: 5d
+      type: Ban
+    fourth:
+      time: 10d
+      type: Ban
+    fifth:
+      time: permanent
+      type: Ban
+  Disrespecting-Community:
+    name: "Disrespecting Community"
+    level: medium
+    Staff-Level: Admin

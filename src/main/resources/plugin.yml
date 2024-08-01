@@ -1,0 +1,17 @@
+name: PunishmentSystem
+version: '${project.version}'
+main: me.itay.punishmentsystem.PunishmentSystem
+api-version: '1.20'
+commands:
+  punish:
+    description: "Opens punishment gui"
+    permission: PunishmentSystem.command.punish
+permissions:
+  PunishmentSystem.immune:
+    description: "can't punish player's with this perm"
+  PunishmentSystem.rank.admin:
+    description: "admin menu"
+  PunishmentSystem.rank.mod:
+    description: "mod menu"
+  PunishmentSystem.rank.helper:
+    description: "helper \ jr.helper menu"
