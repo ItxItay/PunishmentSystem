@@ -15,7 +15,7 @@ public class PunishmentsConfig {
     }
 
     public PunishmentsConfig createCustomConfig() {
-        String configname = "punishments.yml";
+        String configname = "Punishments.yml";
         customConfigFile = new File(PunishmentSystem.getPlugin(PunishmentSystem.class).getDataFolder(), configname);
         if (!customConfigFile.exists()) {
             PunishmentSystem.getPlugin(PunishmentSystem.class).saveResource(configname, false);

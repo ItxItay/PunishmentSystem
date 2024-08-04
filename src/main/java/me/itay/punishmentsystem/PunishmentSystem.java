@@ -3,13 +3,17 @@ package me.itay.punishmentsystem;
 
 import me.itay.punishmentsystem.Managers.FilesManager.PunishmentsConfig;
 import me.itay.punishmentsystem.Managers.Listeners.ClickListener;
+import me.itay.punishmentsystem.Managers.PunishmentsManager.Punishments;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import me.itay.punishmentsystem.Commands.PunishCommand;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -18,14 +22,15 @@ import java.util.logging.Logger;
 public final class PunishmentSystem extends JavaPlugin {
 
     Logger logger = getLogger();
-
+    private PunishmentsConfig punishmentsConfig;
+    private Punishments punishments;
     @Override
     public void onEnable() {
         logger.info("Programmed by ItxItay.");
         this.getCommand("punish").setExecutor(new PunishCommand(this));
         getServer().getPluginManager().registerEvents(new ClickListener(), this);
-
-
+        punishmentsConfig = new PunishmentsConfig().createCustomConfig();
+        punishments = new Punishments(punishmentsConfig);
 
     }
 
