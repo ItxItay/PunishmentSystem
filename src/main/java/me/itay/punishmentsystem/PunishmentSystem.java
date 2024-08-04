@@ -30,8 +30,10 @@ public final class PunishmentSystem extends JavaPlugin {
         this.getCommand("punish").setExecutor(new PunishCommand(this));
         getServer().getPluginManager().registerEvents(new ClickListener(), this);
         punishmentsConfig = new PunishmentsConfig().createCustomConfig();
-        punishments = new Punishments(punishmentsConfig);
+        punishments = new Punishments(punishmentsConfig, this);
 
+        saveDefaultConfig();
+        reloadConfig();
     }
 
 

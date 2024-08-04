@@ -1,14 +1,60 @@
 package me.itay.punishmentsystem.Managers.PunishmentsManager;
 
 import me.itay.punishmentsystem.Managers.FilesManager.PunishmentsConfig;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.List;
 
 
 public class Punishments {
 
+    private JavaPlugin plugin;
     private final PunishmentsConfig punishmentsConfig;
-
-    public Punishments(PunishmentsConfig punishmentsConfig) {
+    private FileConfiguration config;
+    public Punishments(PunishmentsConfig punishmentsConfig, JavaPlugin plugin) {
         this.punishmentsConfig = punishmentsConfig;
+        this.plugin = plugin;
+        this.config = plugin.getConfig();
     }
 
+    public void AdminPunishmentsLoader(Inventory inv) {
+        List<String> punishmentsList = config.getStringList("PunishmentSystem.punishments");
+
+       // int slotIndex = 12;
+
+        for (String punishmentListString : punishmentsList) {
+            String path = "punishments." + punishmentListString;
+            if (punishmentsConfig.getCustomConfig().contains(path)) {
+                Material material;
+                if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("high")) {
+                    material = Material.RED_DYE;
+                } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("medium")) {
+                    material = Material.ORANGE_DYE;
+                } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("low")) {
+                    material = Material.LIME_DYE;
+                } else {
+                    // Default material or error handling
+                    material = Material.WHITE_DYE;
+                }
+
+                ItemStack item = new ItemStack(material);
+                ItemMeta meta = item.getItemMeta();
+                meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
+                item.setItemMeta(meta);
+            /*
+                inv.setItem(slotIndex, item);
+                slotIndex++;
+
+
+                if (slotIndex == 17 || slotIndex == 26 || slotIndex == 35 || slotIndex == 44) {
+                    slotIndex += 4;
+                }*/
+            }
+        }
+    }
 }

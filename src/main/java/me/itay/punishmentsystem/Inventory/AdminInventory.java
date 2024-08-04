@@ -1,6 +1,7 @@
 package me.itay.punishmentsystem.Inventory;
 
 import me.itay.punishmentsystem.Managers.InvenoryItems;
+import me.itay.punishmentsystem.Managers.PunishmentsManager.Punishments;
 import me.itay.punishmentsystem.PunishmentSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,6 +15,7 @@ import org.bukkit.plugin.Plugin;
 public class AdminInventory {
 
     private final Plugin plugin;
+
     public AdminInventory(Plugin plugin) {
         this.plugin = plugin;
     }
@@ -23,7 +25,6 @@ public class AdminInventory {
         InvenoryItems.ChangeItemDisplayName(glass, ChatColor.translateAlternateColorCodes('&', "&c"));
         ItemStack empty = new ItemStack(Material.AIR);
         AdminINV = InvenoryItems.itemLoader(AdminINV, glass, empty);
-
         PunishmentSystem.setPlayerInventory(player.getUniqueId(), AdminINV);
 
         player.openInventory(AdminINV);

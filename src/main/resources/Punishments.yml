@@ -146,7 +146,128 @@ punishments:
     fifth:
       time: permanent
       type: Ban
-  Disrespecting-Community:
-    name: "Disrespecting Community"
-    level: medium
+  Disrespect-Others:
+    name: "Disrespect Others"
+    level: high
+    Staff-Level: Helper
+    first:
+      time: 7d
+      type: Mute
+    second:
+      time: 7d
+      type: Mute
+    third:
+      time: 7d
+      type: Mute
+    fourth:
+      time: 3d
+      type: Ban
+    fifth:
+      time: 3d
+      type: Ban
+  Impersonation:
+    name: "Impersonation"
+    level: high
     Staff-Level: Admin
+    first:
+      time:
+      type: kick
+    second:
+      time: 7d
+      type: Ban
+  Innapropriate-Name:
+    name: "Innapropriate Name"
+    level: high
+    Staff-Level: Admin
+    first:
+      time:
+      type: Kick
+    second:
+      time: 3d
+      type: Ban
+    third:
+      time: 7d
+      type: Ban
+    fourth:
+      time: 14d
+      type: Ban
+    fifth:
+      time: 1m
+      type: Ban
+  Innapropriate-Skin:
+    name: "Innapropriate Skin"
+    level: medium
+    Staff-Level: Moderator
+    first:
+      time:
+      type: Kick
+    second:
+      time:
+      type: Kick
+    third:
+      time: 3d
+      type: Ban
+    fourth:
+      time: 7d
+      type: Ban
+    fifth:
+      time: 14d
+      type: Ban
+  Report-Abuse:
+    name: "Report Abuse"
+    level: medium
+    Staff-Level: Moderator
+    first:
+      time:
+      type: Kick
+    second:
+      time:
+      type: Kick
+    third:
+      time: 1h
+      type: Ban
+    fourth:
+      time: 12h
+      type: Ban
+    fifth:
+      time: 3d
+      type: Ban
+
+  Forbidden-Language:
+    name: "Forbidden Language"
+    level: low
+    Staff-Level: Helper
+    first:
+      time: 1h
+      type: Mute
+    second:
+      time: 3h
+      type: Mute
+    third:
+      time: 12h
+      type: Mute
+    fourth:
+      time: 1d
+      type: Mute
+    fifth:
+      time: 3d
+      type: Mute
+  Spamming:
+    name: "Spamming"
+    level: low
+    Staff-Level: Helper
+    first:
+      time: 3h
+      type: Mute
+    second:
+      time: 12h
+      type: Mute
+    third:
+      time: 5d
+      type: Mute
+    fourth:
+      time: 7d
+      type: Mute
+    fifth:
+      time: 3d
+      type: Ban
