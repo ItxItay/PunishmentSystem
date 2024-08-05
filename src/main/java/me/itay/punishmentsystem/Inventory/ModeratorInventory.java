@@ -11,8 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 public class ModeratorInventory {
-    private final Plugin plugin;
-    public ModeratorInventory(Plugin plugin) {
+    private final PunishmentSystem plugin;
+    public ModeratorInventory(PunishmentSystem plugin) {
         this.plugin = plugin;
     }
     public void openModeratorInventory(Player player){
@@ -23,6 +23,7 @@ public class ModeratorInventory {
         ModeratorINV = InvenoryItems.itemLoader(ModeratorINV, glass, empty);
 
         PunishmentSystem.setPlayerInventory(player.getUniqueId(), ModeratorINV);
+        plugin.getPunishments().ModeratorPunishmentsLoader(ModeratorINV);
 
         player.openInventory(ModeratorINV);
     }

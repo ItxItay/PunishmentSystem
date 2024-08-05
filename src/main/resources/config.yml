@@ -16,29 +16,3 @@
 #   programmed by ItxItay!
 #
 PunishmentSystem:
-
-
-
-#  Write all the punishments here, in the correct order.
- punishments:
-   - Bypassing-Punishment
-   - Multiple-Accounts
-   - Personal-Information
-   - Harassment
-   - Unfair-Advantage
-   - Threatening
-   - Sexual-Content
-   - Disrespecting-Community
-   - Disrespecting-Staff
-   - Disrespecting-Other
-   - Impersonation
-   - Cross-Teaming
-   - Spawn-Kill
-   - Advertising
-   - Spamming
-   - Bug-Abuse
-   - Report-Abuse
-   - Inappropriate-Name
-   - Inappropriate-Skin
-   - Forbidden-Build
-   - Forbidden-Language

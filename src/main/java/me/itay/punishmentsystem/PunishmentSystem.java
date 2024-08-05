@@ -69,5 +69,7 @@ public final class PunishmentSystem extends JavaPlugin {
         return CoreProtect;
     }
 
-
+    public Punishments getPunishments(){
+        return punishments;
+    }
 }

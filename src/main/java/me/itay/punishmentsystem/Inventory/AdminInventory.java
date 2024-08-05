@@ -14,9 +14,9 @@ import org.bukkit.plugin.Plugin;
 
 public class AdminInventory {
 
-    private final Plugin plugin;
+    private final PunishmentSystem plugin;
 
-    public AdminInventory(Plugin plugin) {
+    public AdminInventory(PunishmentSystem plugin) {
         this.plugin = plugin;
     }
     public void openAdminInventory(Player player){
@@ -26,7 +26,7 @@ public class AdminInventory {
         ItemStack empty = new ItemStack(Material.AIR);
         AdminINV = InvenoryItems.itemLoader(AdminINV, glass, empty);
         PunishmentSystem.setPlayerInventory(player.getUniqueId(), AdminINV);
-
+        plugin.getPunishments().AdminPunishmentsLoader(AdminINV);
         player.openInventory(AdminINV);
     }
 }

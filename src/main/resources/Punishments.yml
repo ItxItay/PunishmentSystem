@@ -146,7 +146,7 @@ punishments:
     fifth:
       time: permanent
       type: Ban
-  Disrespect-Others:
+  Disrespecting-Others:
     name: "Disrespect Others"
     level: high
     Staff-Level: Helper
@@ -197,7 +197,7 @@ punishments:
   Innapropriate-Skin:
     name: "Innapropriate Skin"
     level: medium
-    Staff-Level: Moderator
+    Staff-Level: Mod
     first:
       time:
       type: Kick
@@ -216,7 +216,7 @@ punishments:
   Report-Abuse:
     name: "Report Abuse"
     level: medium
-    Staff-Level: Moderator
+    Staff-Level: Mod
     first:
       time:
       type: Kick
@@ -232,7 +232,6 @@ punishments:
     fifth:
       time: 3d
       type: Ban
-
   Forbidden-Language:
     name: "Forbidden Language"
     level: low

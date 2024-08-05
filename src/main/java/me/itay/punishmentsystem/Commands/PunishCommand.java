@@ -18,9 +18,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class PunishCommand implements CommandExecutor {
 
-    private JavaPlugin plugin;
+    private PunishmentSystem plugin;
 
-    public PunishCommand(JavaPlugin plugin) {
+    public PunishCommand(PunishmentSystem plugin) {
         this.plugin = plugin;
     }
 
