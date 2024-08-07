@@ -28,9 +28,9 @@ public final class PunishmentSystem extends JavaPlugin {
     public void onEnable() {
         logger.info("Programmed by ItxItay.");
         this.getCommand("punish").setExecutor(new PunishCommand(this));
-        getServer().getPluginManager().registerEvents(new ClickListener(), this);
         punishmentsConfig = new PunishmentsConfig().createCustomConfig();
         punishments = new Punishments(punishmentsConfig, this);
+        getServer().getPluginManager().registerEvents(new ClickListener(punishmentsConfig, this), this);
 
         saveDefaultConfig();
         reloadConfig();

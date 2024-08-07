@@ -11,8 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 public class HelperInventory {
-    private final Plugin plugin;
-    public HelperInventory(Plugin plugin) {
+    private final PunishmentSystem plugin;
+    public HelperInventory(PunishmentSystem plugin) {
         this.plugin = plugin;
     }
     public void openHelperInventory(Player player){
@@ -21,7 +21,7 @@ public class HelperInventory {
         InvenoryItems.ChangeItemDisplayName(glass, ChatColor.translateAlternateColorCodes('&', "&9"));
         ItemStack empty = new ItemStack(Material.AIR);
         HelperINV = InvenoryItems.itemLoader(HelperINV, glass, empty);
-
+        plugin.getPunishments().HelperPunishmentsLoader(HelperINV);
         PunishmentSystem.setPlayerInventory(player.getUniqueId(), HelperINV);
 
         player.openInventory(HelperINV);

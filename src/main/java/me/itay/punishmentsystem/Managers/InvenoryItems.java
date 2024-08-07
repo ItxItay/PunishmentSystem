@@ -7,6 +7,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Arrays;
+
 public class InvenoryItems {
 
     public static Inventory itemLoader(Inventory inv, ItemStack glass, ItemStack empty){
@@ -47,5 +49,14 @@ public class InvenoryItems {
         meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', DisplayName));
         stack.setItemMeta(meta);
         return stack;
+    }
+
+    public static ItemStack ChangeItemMeta(Material material, String displayName, String locallizename) {
+        ItemStack is = new ItemStack(material);
+        ItemMeta isMeta = is.getItemMeta();
+        isMeta.setDisplayName(displayName);
+        isMeta.setLocalizedName(locallizename);
+        is.setItemMeta(isMeta);
+        return is;
     }
 }

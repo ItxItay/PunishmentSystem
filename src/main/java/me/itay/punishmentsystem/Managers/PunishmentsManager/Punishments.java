@@ -34,19 +34,20 @@ public class Punishments {
             if (punishmentsConfig.getCustomConfig().contains(path)) {
                 Material material;
                 if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("high")) {
-                    material = Material.RED_DYE;
+                    material = Material.RED_BANNER;
                 } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("medium")) {
-                    material = Material.ORANGE_DYE;
+                    material = Material.ORANGE_BANNER;
                 } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("low")) {
-                    material = Material.LIME_DYE;
+                    material = Material.LIME_BANNER;
                 } else {
                     // Default material or error handling
-                    material = Material.WHITE_DYE;
+                    material = Material.WHITE_BANNER;
                 }
 
                 ItemStack item = new ItemStack(material);
                 ItemMeta meta = item.getItemMeta();
                 meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
+                meta.setLocalizedName(path);
                 item.setItemMeta(meta);
 
                 inv.setItem(slotIndex, item);
@@ -67,7 +68,6 @@ public class Punishments {
 
         for (String punishmentListString : punishmentsList) {
             String path = "punishments." + punishmentListString;
-            System.out.println(path);
             String level = punishmentsConfig.getCustomConfig().getString(path + ".Staff-Level");
             StaffLevelEnum correctlevel = staffLevelEnum(level);
             if (correctlevel == null){
@@ -77,19 +77,20 @@ public class Punishments {
                 if (punishmentsConfig.getCustomConfig().contains(path)) {
                     Material material;
                     if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("high")) {
-                        material = Material.RED_DYE;
+                        material = Material.RED_BANNER;
                     } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("medium")) {
-                        material = Material.ORANGE_DYE;
+                        material = Material.ORANGE_BANNER;
                     } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("low")) {
-                        material = Material.LIME_DYE;
+                        material = Material.LIME_BANNER;
                     } else {
                         // Default material or error handling
-                        material = Material.WHITE_DYE;
+                        material = Material.WHITE_BANNER;
                     }
 
                     ItemStack item = new ItemStack(material);
                     ItemMeta meta = item.getItemMeta();
                     meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
+                    meta.setLocalizedName(path);
                     item.setItemMeta(meta);
 
                     inv.setItem(slotIndex, item);
@@ -108,6 +109,53 @@ public class Punishments {
     }
 
 
+
+    public Inventory HelperPunishmentsLoader(Inventory inv) {
+        Set<String> punishmentsList = punishmentsConfig.getCustomConfig().getConfigurationSection("punishments").getKeys(false);
+        int slotIndex = 12;
+
+        for (String punishmentListString : punishmentsList) {
+            String path = "punishments." + punishmentListString;
+            System.out.println(path);
+            String level = punishmentsConfig.getCustomConfig().getString(path + ".Staff-Level");
+            StaffLevelEnum correctlevel = staffLevelEnum(level);
+            if (correctlevel == null){
+                continue;
+            }
+            if (hasPerm(StaffLevelEnum.HELPER, correctlevel)){
+                if (punishmentsConfig.getCustomConfig().contains(path)) {
+                    Material material;
+                    if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("high")) {
+                        material = Material.RED_BANNER;
+                    } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("medium")) {
+                        material = Material.ORANGE_BANNER;
+                    } else if (punishmentsConfig.getCustomConfig().getString(path + ".level").equals("low")) {
+                        material = Material.LIME_BANNER;
+                    } else {
+                        // Default material or error handling
+                        material = Material.WHITE_BANNER;
+                    }
+
+                    ItemStack item = new ItemStack(material);
+                    ItemMeta meta = item.getItemMeta();
+                    meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
+                    meta.setLocalizedName(path);
+                    item.setItemMeta(meta);
+
+                    inv.setItem(slotIndex, item);
+                    slotIndex++;
+
+
+                    if (slotIndex == 17 || slotIndex == 26 || slotIndex == 35 || slotIndex == 44) {
+                        slotIndex += 4;
+                    }
+                }
+            }
+
+
+        }
+        return inv;
+    }
     public static StaffLevelEnum staffLevelEnum(String stafflevel){
         try {
             return StaffLevelEnum.valueOf(stafflevel.toUpperCase());
