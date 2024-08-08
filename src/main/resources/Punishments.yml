@@ -14,7 +14,7 @@
 # //instructions here
 punishments:
   Bypassing-Punishment:
-    name: "Bypassing Punishment"
+    reason: "Bypassing Punishment"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -22,7 +22,7 @@ punishments:
         time: permanent
         type: BanIP
   Multiple-Accounts:
-    name: "Multiple Accounts"
+    reason: "Multiple Accounts"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -30,7 +30,7 @@ punishments:
         time: permanent
         type: BanIP
   Personal-Information:
-    name: "Personal Information"
+    reason: "Personal Information"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -41,7 +41,7 @@ punishments:
         time: permanent
         type: Ban
   Harassment:
-    name: "Harassment"
+    reason: "Harassment"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -61,7 +61,7 @@ punishments:
         time: 5y
         type: Ban
   Unfair-Advantage:
-    name: "Unfair Advantage"
+    reason: "Unfair Advantage"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -81,7 +81,7 @@ punishments:
         time: 3y
         type: Ban
   Threatening:
-    name: Threatening
+    reason: Threatening
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -101,7 +101,7 @@ punishments:
         time: 480d
         type: Ban
   Sexual-Content:
-    name: "Sexual Content"
+    reason: "Sexual Content"
     level: high
     Staff-Level: Helper
     PunishmentsLevel:
@@ -121,7 +121,7 @@ punishments:
         time: permanent
         type: Ban
   Disrespecting-Others:
-    name: "Disrespect Others"
+    reason: "Disrespect Others"
     level: high
     Staff-Level: Helper
     PunishmentsLevel:
@@ -141,7 +141,7 @@ punishments:
         time: 3d
         type: Ban
   Impersonation:
-    name: "Impersonation"
+    reason: "Impersonation"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -151,8 +151,8 @@ punishments:
       second:
         time: 7d
         type: Ban
-  Innapropriate-Name:
-    name: "Innapropriate Name"
+  Innapropriate-reason:
+    reason: "Innapropriate reason"
     level: high
     Staff-Level: Admin
     PunishmentsLevel:
@@ -172,7 +172,7 @@ punishments:
         time: 1m
         type: Ban
   Innapropriate-Skin:
-    name: "Innapropriate Skin"
+    reason: "Innapropriate Skin"
     level: medium
     Staff-Level: Mod
     PunishmentsLevel:
@@ -192,7 +192,7 @@ punishments:
         time: 14d
         type: Ban
   Report-Abuse:
-    name: "Report Abuse"
+    reason: "Report Abuse"
     level: medium
     Staff-Level: Mod
     PunishmentsLevel:
@@ -212,7 +212,7 @@ punishments:
         time: 3d
         type: Ban
   Forbidden-Language:
-    name: "Forbidden Language"
+    reason: "Forbidden Language"
     level: low
     Staff-Level: Helper
     PunishmentsLevel:
@@ -232,7 +232,7 @@ punishments:
         time: 3d
         type: Mute
   Spamming:
-    name: "Spamming"
+    reason: "Spamming"
     level: low
     Staff-Level: Helper
     PunishmentsLevel:

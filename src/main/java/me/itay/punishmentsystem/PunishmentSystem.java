@@ -1,12 +1,14 @@
 package me.itay.punishmentsystem;
 
 
+
 import me.itay.punishmentsystem.Managers.FilesManager.PunishmentsConfig;
 import me.itay.punishmentsystem.Managers.Listeners.ClickListener;
 import me.itay.punishmentsystem.Managers.PunishmentsManager.Punishments;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import me.itay.punishmentsystem.Commands.PunishCommand;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
@@ -31,6 +33,7 @@ public final class PunishmentSystem extends JavaPlugin {
         punishmentsConfig = new PunishmentsConfig().createCustomConfig();
         punishments = new Punishments(punishmentsConfig, this);
         getServer().getPluginManager().registerEvents(new ClickListener(punishmentsConfig, this), this);
+
 
         saveDefaultConfig();
         reloadConfig();
@@ -71,5 +74,9 @@ public final class PunishmentSystem extends JavaPlugin {
 
     public Punishments getPunishments(){
         return punishments;
+    }
+
+    public NamespacedKey punishStorage(){
+        return new NamespacedKey(this, "punishment");
     }
 }

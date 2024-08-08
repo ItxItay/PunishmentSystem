@@ -15,19 +15,19 @@ public class PunishSelectInventory {
 
 
 
-        ItemStack first = InvenoryItems.ChangeItemMeta(Material.LIME_DYE, "&aפעם ראשונה", punishmentpath);
+        ItemStack first = InvenoryItems.ChangeItemMeta(Material.LIME_DYE, "פעם ראשונה", punishmentpath);
         inv.setItem(9, first);
 
-        ItemStack second = InvenoryItems.ChangeItemMeta(Material.GREEN_DYE, "&2פעם ראשונה ", punishmentpath);
+        ItemStack second = InvenoryItems.ChangeItemMeta(Material.GREEN_DYE, "פעם שנייה", punishmentpath);
         inv.setItem(11, second);
 
-        ItemStack third = InvenoryItems.ChangeItemMeta(Material.YELLOW_DYE, "&eפעם שלישית", punishmentpath);
+        ItemStack third = InvenoryItems.ChangeItemMeta(Material.YELLOW_DYE, "פעם שלישית", punishmentpath);
         inv.setItem(13, third);
 
-        ItemStack fourth = InvenoryItems.ChangeItemMeta(Material.ORANGE_DYE, "&6פעם רביעית", punishmentpath);
+        ItemStack fourth = InvenoryItems.ChangeItemMeta(Material.ORANGE_DYE, "פעם רביעית", punishmentpath);
         inv.setItem(15, fourth);
 
-        ItemStack fifth = InvenoryItems.ChangeItemMeta(Material.RED_DYE, "&cפעם חמישית", punishmentpath);
+        ItemStack fifth = InvenoryItems.ChangeItemMeta(Material.RED_DYE, "פעם חמישית", punishmentpath);
         inv.setItem(17, fifth);
 
         PunishmentSystem.setPlayerInventory(player.getUniqueId(), inv);

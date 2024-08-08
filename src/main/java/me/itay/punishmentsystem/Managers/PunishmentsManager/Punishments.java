@@ -1,12 +1,16 @@
 package me.itay.punishmentsystem.Managers.PunishmentsManager;
 
 import me.itay.punishmentsystem.Managers.FilesManager.PunishmentsConfig;
+import me.itay.punishmentsystem.PunishmentSystem;
+import me.itay.punishmentsystem.Utils.PunishmentsTypes;
 import me.itay.punishmentsystem.Utils.StaffLevelEnum;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -15,14 +19,13 @@ import java.util.Set;
 
 public class Punishments {
 
-    private JavaPlugin plugin;
+    private PunishmentSystem plugin;
     private final PunishmentsConfig punishmentsConfig;
     private FileConfiguration config;
-    public Punishments(PunishmentsConfig punishmentsConfig, JavaPlugin plugin) {
+    public Punishments(PunishmentsConfig punishmentsConfig, PunishmentSystem plugin) {
         this.punishmentsConfig = punishmentsConfig;
         this.plugin = plugin;
-        this.config = plugin.getConfig();
-    }
+        this.config = plugin.getConfig();}
 
     public Inventory AdminPunishmentsLoader(Inventory inv) {
         Set<String> punishmentsList = punishmentsConfig.getCustomConfig().getConfigurationSection("punishments").getKeys(false);
@@ -46,8 +49,9 @@ public class Punishments {
 
                 ItemStack item = new ItemStack(material);
                 ItemMeta meta = item.getItemMeta();
-                meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
-                meta.setLocalizedName(path);
+                //String name = (punishmentListString.split(".")[1].replaceAll("-", " "));
+                String name = (punishmentListString.replaceAll("-", " "));
+                meta.setDisplayName(name);
                 item.setItemMeta(meta);
 
                 inv.setItem(slotIndex, item);
@@ -89,8 +93,8 @@ public class Punishments {
 
                     ItemStack item = new ItemStack(material);
                     ItemMeta meta = item.getItemMeta();
-                    meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
-                    meta.setLocalizedName(path);
+                    String name = (punishmentListString.replaceAll("-", " "));
+                    meta.setDisplayName(name);
                     item.setItemMeta(meta);
 
                     inv.setItem(slotIndex, item);
@@ -138,8 +142,8 @@ public class Punishments {
 
                     ItemStack item = new ItemStack(material);
                     ItemMeta meta = item.getItemMeta();
-                    meta.setDisplayName(punishmentsConfig.getCustomConfig().getString(path + ".name"));
-                    meta.setLocalizedName(path);
+                    String name = (punishmentListString.replaceAll("-", " "));
+                    meta.setDisplayName(name);
                     item.setItemMeta(meta);
 
                     inv.setItem(slotIndex, item);
