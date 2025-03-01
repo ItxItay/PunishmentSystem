@@ -1,21 +1,12 @@
 package me.itay.punishmentsystem;
 
-
-
 import me.itay.punishmentsystem.Managers.FilesManager.PunishmentsConfig;
 import me.itay.punishmentsystem.Managers.Listeners.ClickListener;
 import me.itay.punishmentsystem.Managers.PunishmentsManager.Punishments;
-import net.coreprotect.CoreProtect;
-import net.coreprotect.CoreProtectAPI;
 import me.itay.punishmentsystem.Commands.PunishCommand;
-import org.bukkit.NamespacedKey;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -26,13 +17,17 @@ public final class PunishmentSystem extends JavaPlugin {
     Logger logger = getLogger();
     private PunishmentsConfig punishmentsConfig;
     private Punishments punishments;
+    private static PunishmentSystem plugin;
+
     @Override
     public void onEnable() {
+        PunishmentSystem.plugin = this;
+
         logger.info("Programmed by ItxItay.");
-        this.getCommand("punish").setExecutor(new PunishCommand(this));
+        this.getCommand("punish").setExecutor(new PunishCommand());
         punishmentsConfig = new PunishmentsConfig().createCustomConfig();
-        punishments = new Punishments(punishmentsConfig, this);
-        getServer().getPluginManager().registerEvents(new ClickListener(punishmentsConfig, this), this);
+        punishments = new Punishments(punishmentsConfig);
+        getServer().getPluginManager().registerEvents(new ClickListener(punishmentsConfig), this);
 
 
         saveDefaultConfig();
@@ -49,34 +44,11 @@ public final class PunishmentSystem extends JavaPlugin {
         return playerInventory.get(playerId);
     }
 
-    //CoreProtectAPI:
-    private CoreProtectAPI getCoreProtect() {
-        Plugin plugin = getServer().getPluginManager().getPlugin("CoreProtect");
-
-        // Check that CoreProtect is loaded
-        if (plugin == null || !(plugin instanceof CoreProtect)) {
-            return null;
-        }
-
-        // Check that the API is enabled
-        CoreProtectAPI CoreProtect = ((CoreProtect) plugin).getAPI();
-        if (CoreProtect.isEnabled() == false) {
-            return null;
-        }
-
-        // Check that a compatible version of the API is loaded
-        if (CoreProtect.APIVersion() < 10) {
-            return null;
-        }
-
-        return CoreProtect;
-    }
-
     public Punishments getPunishments(){
         return punishments;
     }
 
-    public NamespacedKey punishStorage(){
-        return new NamespacedKey(this, "punishment");
+    public static PunishmentSystem getPlugin() {
+        return plugin;
     }
 }

@@ -13,8 +13,6 @@ public class PunishSelectInventory {
     public static void openPunishSelectInventory(Player player, String punishmentpath){
         Inventory inv = Bukkit.createInventory(null, 27, "Time");
 
-
-
         ItemStack first = InvenoryItems.ChangeItemMeta(Material.LIME_DYE, "פעם ראשונה", punishmentpath);
         inv.setItem(9, first);
 

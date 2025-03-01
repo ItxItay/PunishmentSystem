@@ -11,10 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 public class ModeratorInventory {
-    private final PunishmentSystem plugin;
-    public ModeratorInventory(PunishmentSystem plugin) {
-        this.plugin = plugin;
-    }
+    private final PunishmentSystem plugin = PunishmentSystem.getPlugin();
+
     public void openModeratorInventory(Player player){
         Inventory ModeratorINV = Bukkit.createInventory(null, 54, "Moderator Menu");
         ItemStack glass = new ItemStack(Material.LIME_STAINED_GLASS_PANE);

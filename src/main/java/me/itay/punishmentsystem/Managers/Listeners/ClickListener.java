@@ -22,14 +22,13 @@ import java.util.UUID;
 
 public class ClickListener implements Listener {
 
-    private PunishmentSystem plugin;
+
     private final PunishmentsConfig punishmentsConfig;
 
     HashMap<UUID, String> punishmentDataMap = new HashMap<>();
 
-    public ClickListener(PunishmentsConfig punishmentsConfig, PunishmentSystem plugin) {
+    public ClickListener(PunishmentsConfig punishmentsConfig) {
         this.punishmentsConfig = punishmentsConfig;
-        this.plugin = plugin;;
     }
 
 
@@ -41,15 +40,24 @@ public class ClickListener implements Listener {
         event.setCancelled(true);
         Player targetPlayer = PunishCommand.playerPunish(player);
 
-
         if (event.getCurrentItem() == null) {
             return;
         }
         ItemStack clickedItem = event.getCurrentItem();
-        if (clickedItem.getType() == Material.OAK_SIGN) {
+
+        if (clickedItem.getType() == Material.OAK_SIGN) { //ChatHistory
             player.closeInventory();
             player.chat("/co lookup user:" + targetPlayer.getName() + " action:chat ");
         }
+        if (clickedItem.getType() == Material.CLOCK) { //History
+            player.closeInventory();
+            player.chat("/history " + targetPlayer.getName());
+        }
+        if (clickedItem.getType() == Material.NAME_TAG) { //Nickname
+            player.closeInventory();
+            player.sendMessage("unavailable option");
+        }
+
 
 
         if (punishmentsList.contains(clickedItem.getItemMeta().getDisplayName().replaceAll(" ", "-"))) {
@@ -59,9 +67,7 @@ public class ClickListener implements Listener {
         }
 
         if (clickedItem.getType().toString().contains("DYE")) {
-           // ConfigurationSection punishmentData = punishmentsConfig.getCustomConfig().getConfigurationSection(clickedItem.getItemMeta().getDisplayName().replaceAll(" ", "-") + ".PunishmentsLevel");
             if (!punishmentDataMap.containsKey(player.getUniqueId())){return;}
-            //String path = "punishments."+clickedItem.getItemMeta().getDisplayName().replaceAll(" ", "-");
             String path = punishmentDataMap.get(player.getUniqueId());
             ConfigurationSection punishmentData = punishmentsConfig.getCustomConfig().getConfigurationSection(path + ".PunishmentsLevel");
 

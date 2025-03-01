@@ -11,10 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 public class HelperInventory {
-    private final PunishmentSystem plugin;
-    public HelperInventory(PunishmentSystem plugin) {
-        this.plugin = plugin;
-    }
+    private final PunishmentSystem plugin = PunishmentSystem.getPlugin();
+
     public void openHelperInventory(Player player){
         Inventory HelperINV = Bukkit.createInventory(null, 54, "Helper Menu");
         ItemStack glass = new ItemStack(Material.CYAN_STAINED_GLASS_PANE);

@@ -1,13 +1,13 @@
 package me.itay.punishmentsystem.Managers;
 
+import me.itay.punishmentsystem.Commands.PunishCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
 
 public class InvenoryItems {
 
@@ -15,7 +15,7 @@ public class InvenoryItems {
        for (int i = 0; i <= 53; i++) {
            inv.setItem(i, glass);
        }
-        //empety zone:
+        //empty zone:
         for (int i = 12; i <= 16; i++) {
             inv.setItem(i, empty);
         }
@@ -28,17 +28,23 @@ public class InvenoryItems {
         for (int i = 39; i <= 43; i++) {
             inv.setItem(i, empty);
         }
+        String targetPlayer = PunishCommand.getTargetPlayer().getDisplayName();
+
         //player name:
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
+        ChangeItemDisplayName(head, "&e" +targetPlayer);
         inv.setItem(10, head);
         //ChatHistory
-        ItemStack chathistory = new ItemStack(Material.OAK_SIGN);
-        inv.setItem(19, chathistory);
+        ItemStack chatHistory = new ItemStack(Material.OAK_SIGN);
+        ChangeItemDisplayName(chatHistory, "&e" + targetPlayer + "'s chat history");
+        inv.setItem(19, chatHistory);
         //History
         ItemStack history = new ItemStack(Material.CLOCK);
+        ChangeItemDisplayName(history, "&e" +targetPlayer + "'s punishments history");
         inv.setItem(28, history);
-        //resetNICKNAME
+        //reset nickname
         ItemStack nickname = new ItemStack(Material.NAME_TAG);
+        ChangeItemDisplayName(nickname, "&eReset " + targetPlayer + "'s Nickname");
         inv.setItem(37, nickname);
 
         return inv;

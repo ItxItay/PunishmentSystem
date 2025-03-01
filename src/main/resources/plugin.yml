@@ -10,7 +10,8 @@ commands:
     description: "Opens punishment gui"
     permission: PunishmentSystem.command.punish
 permissions:
-  PunishmentSystem.immune:
+  PunishmentSystem:
+    immune:
     description: "can't punish player's with this perm"
   PunishmentSystem.rank.admin:
     description: "admin menu"
