@@ -41,10 +41,10 @@ public class PunishCommand implements CommandExecutor {
         }
 
         // Check if sender is trying to punish himself
-        /*if (sender instanceof Player && sender.getName().equalsIgnoreCase(targetName)) {
+        if (sender instanceof Player && sender.getName().equalsIgnoreCase(targetName)) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cYou cannot punish yourself!"));
             return false;
-        }*/
+        }
 
         targetPlayer = sender.getServer().getPlayer(targetName);
 
